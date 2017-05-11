@@ -10,9 +10,10 @@ namespace Cake.NSwag.Console
 {
     internal static class Extensions
     {
-        internal static ProcessArgumentBuilder AddSwitch(this ProcessArgumentBuilder args, string key, string value)
+        internal static ProcessArgumentBuilder AddSwitch(this ProcessArgumentBuilder args, string key, string value, bool quoteValue = false)
         {
             if (string.IsNullOrWhiteSpace(value)) return args;
+            value = quoteValue ? value.Quote() : value;
             return args.Append($"/{key.Trim('/', ':')}:{value}");
         }
 

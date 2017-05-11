@@ -75,14 +75,14 @@ namespace Cake.NSwag.Console.Sources
         {
             var args = Runner.GetToolArguments();
             args.Append("webapi2swagger");
-            args.AddSwitch("assembly", Source.GetRelativePath(Environment.WorkingDirectory).FullPath)
+            args.AddSwitch("assembly", Source.FullPath)
                 .AddSwitch("output", outputFile.FullPath)
                 .AddSwitch("DefaultEnumHandling", settings.EnumAsString ? "String" : "Integer")
-                .AddSwitch("ReferencePaths", string.Join(",", settings.AssemblyPaths.Select(a => a.FullPath)))
+                .AddSwitch("ReferencePaths", string.Join(",", settings.AssemblyPaths.Select(a => a.FullPath)), true)
                 .AddSwitch("DefaultPropertyNameHandling", settings.CamelCaseProperties ? "CamelCase" : "Default")
                 .AddSwitch("ServiceBasePath", settings.BasePath)
-                .AddSwitch("InfoTitle", settings.ApiTitle)
-                .AddSwitch("InfoDescription", settings.ApiDescription)
+                .AddSwitch("InfoTitle", settings.ApiTitle, true)
+                .AddSwitch("InfoDescription", settings.ApiDescription, true)
                 .AddSwitch("DefaultUrlTemplate", settings.DefaultUrlTemplate);
             Runner.Run(args);
         }
