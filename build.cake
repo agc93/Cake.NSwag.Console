@@ -92,23 +92,13 @@ Task("Run-Unit-Tests")
 	.IsDependentOn("Build")
 	.Does(() =>
 {
+    CreateDirectory(testResultsPath);
 	if (projects.TestProjects.Any()) {
-		CreateDirectory(testResultsPath);
-
-		/*var settings = new XUnit2Settings {
-			NoAppDomain = true,
-			XmlReport = true,
-			HtmlReport = true,
-			OutputDirectory = testResultsPath,
-		};
-		settings.ExcludeTrait("Category", "Integration"); */
 
 		var settings = new DotNetCoreTestSettings {
-			Configuration = configuration,
-			//ArgumentCustomization = args => args.AppendSwitchQuoted("--logger", "trx;LogFilePath=" + testResultsPath + "tests.trx")
+			Configuration = configuration
 		};
 
-		//XUnit2(testAssemblies, settings);
 		foreach(var project in projects.TestProjects) {
 			DotNetCoreTest(project.Path.FullPath, settings);
 		}
