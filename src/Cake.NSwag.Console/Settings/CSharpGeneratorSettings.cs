@@ -27,8 +27,18 @@ namespace Cake.NSwag.Console.Settings
         public bool GenerateInterfaces { get; set; }
 
         /// <summary>
+        ///     Gets or sets a value indicating whether to generate DTO classes.
+        /// </summary>
+        public bool GenerateDtoTypes { get; set; } = true;
+
+        /// <summary>
         ///     Gets or sets the class name of the generated exception class
         /// </summary>
         public string ExceptionClass { get; set; }
+
+        /// <summary>
+        /// Gets or sets the class name of the generated configuration class
+        /// </summary>
+        public string ConfigurationClass { get; set; }
     }
 }
