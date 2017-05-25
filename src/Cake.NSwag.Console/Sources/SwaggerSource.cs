@@ -40,7 +40,9 @@ namespace Cake.NSwag.Console.Sources
                 .AddSwitch("output", outputFile.FullPath)
                 .AddSwitch("ClientBaseClass", settings.BaseClass)
                 .AddSwitch("GenerateClientInterfaces", settings.GenerateInterfaces.ToString())
+                .AddSwitch("GenerateDtoTypes", settings.GenerateDtoTypes.ToString())
                 .AddSwitch("ExceptionClass", settings.ExceptionClass)
+                .AddSwitch("ConfigurationClass", settings.ConfigurationClass)
                 .AddSwitch("AdditionalNamespaceUsages", string.Join(",", settings.Namespaces.Select(a => a.Trim())))
                 .AddSwitch("ClassName", @class.Value)
                 .AddSwitch("Namespace", @class.Key);
