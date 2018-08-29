@@ -49,8 +49,7 @@ namespace Cake.NSwag.Console.Settings
         /// <param name="settings">The settings</param>
         /// <param name="assemblyPaths">Assemblies to search for metadata.</param>
         /// <returns>The updated settings object</returns>
-        public static SwaggerGeneratorSettings SearchAssemblies(this SwaggerGeneratorSettings settings,
-            params FilePath[] assemblyPaths)
+        public static SwaggerGeneratorSettings SearchAssemblies(this SwaggerGeneratorSettings settings, params FilePath[] assemblyPaths)
         {
             var a = settings.AssemblyPaths as List<FilePath> ?? settings.AssemblyPaths.ToList();
             a.AddRange(assemblyPaths.ToList());
@@ -76,8 +75,7 @@ namespace Cake.NSwag.Console.Settings
         /// <param name="settings">The settings</param>
         /// <param name="description">Description to include with the generated API spec</param>
         /// <returns>The updated settings object</returns>
-        public static SwaggerGeneratorSettings WithDescription(this SwaggerGeneratorSettings settings,
-            string description)
+        public static SwaggerGeneratorSettings WithDescription(this SwaggerGeneratorSettings settings, string description)
         {
             settings.ApiDescription = description;
             return settings;
@@ -92,6 +90,54 @@ namespace Cake.NSwag.Console.Settings
         public static SwaggerGeneratorSettings UseBasePath(this SwaggerGeneratorSettings settings, string basePath)
         {
             settings.BasePath = basePath;
+            return settings;
+        }
+
+        /// <summary>
+        ///     Sets the service host path for use in the Swagger specification
+        /// </summary>
+        /// <param name="settings">The settings</param>
+        /// <param name="serviceHost">Service host to set in the generated specification</param>
+        /// <returns>The updated settings object</returns>
+        public static SwaggerGeneratorSettings UseServiceHost(this SwaggerGeneratorSettings settings, string serviceHost)
+        {
+            settings.ServiceHost = serviceHost;
+            return settings;
+        }
+
+        /// <summary>
+        ///     Sets the service schemes path for use in the Swagger specification
+        /// </summary>
+        /// <param name="settings">The settings</param>
+        /// <param name="serviceSchemes">Service schemes to set in the generated specification</param>
+        /// <returns>The updated settings object</returns>
+        public static SwaggerGeneratorSettings UseServiceSchemes(this SwaggerGeneratorSettings settings, string serviceSchemes)
+        {
+            settings.ServiceSchemes = serviceSchemes;
+            return settings;
+        }
+
+        /// <summary>
+        ///     Sets the service schemes path for use in the Swagger specification
+        /// </summary>
+        /// <param name="settings">The settings</param>
+        /// <param name="apiVersion">Service version to set in the generated specification</param>
+        /// <returns>The updated settings object</returns>
+        public static SwaggerGeneratorSettings WithVersion(this SwaggerGeneratorSettings settings, string apiVersion)
+        {
+            settings.ApiVersion = apiVersion;
+            return settings;
+        }
+
+        /// <summary>
+        ///     Sets the runtime to use for the Swagger generation
+        /// </summary>
+        /// <param name="settings">The settings</param>
+        /// <param name="runtime">Runtime to generate the specification</param>
+        /// <returns>The updated settings object</returns>
+        public static SwaggerGeneratorSettings UseRuntime(this SwaggerGeneratorSettings settings, string runtime)
+        {
+            settings.Runtime = runtime;
             return settings;
         }
     }

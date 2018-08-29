@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.NSwag.Console.Settings;
@@ -10,8 +8,7 @@ namespace Cake.NSwag.Console.Sources
 {
     public class AssemblySource : GenerationSource
     {
-        public AssemblySource(NSwagConsoleRunner runner, FilePath assemblyPath, ICakeEnvironment environment, bool useWebApi)
-            : base(runner, assemblyPath, environment)
+        public AssemblySource(NSwagConsoleRunner runner, FilePath assemblyPath, ICakeEnvironment environment, bool useWebApi) : base(runner, assemblyPath, environment)
         {
             Mode = useWebApi ? AssemblyMode.WebApi : AssemblyMode.Normal;
         }
@@ -75,15 +72,22 @@ namespace Cake.NSwag.Console.Sources
         {
             var args = Runner.GetToolArguments();
             args.Append("webapi2swagger");
-            args.AddSwitch("assembly", Source.FullPath)
+            args.AddSwitch("runtime", settings.Runtime ?? "WinX64")
+                .AddSwitch("assembly", Source.FullPath)
                 .AddSwitch("output", outputFile.FullPath)
                 .AddSwitch("DefaultEnumHandling", settings.EnumAsString ? "String" : "Integer")
                 .AddSwitch("ReferencePaths", string.Join(",", settings.AssemblyPaths.Select(a => a.FullPath)), true)
                 .AddSwitch("DefaultPropertyNameHandling", settings.CamelCaseProperties ? "CamelCase" : "Default")
-                .AddSwitch("ServiceBasePath", settings.BasePath)
+                .AddSwitch("ServiceBasePath", settings.BasePath, true)
+                .AddSwitch("ServiceHost", settings.ServiceHost)
                 .AddSwitch("InfoTitle", settings.ApiTitle, true)
                 .AddSwitch("InfoDescription", settings.ApiDescription, true)
+                .AddSwitch("InfoVersion", settings.ApiVersion ?? "1.0.0", true)
+                .AddSwitch("ServiceSchemes", settings.ServiceSchemes, true)
                 .AddSwitch("DefaultUrlTemplate", settings.DefaultUrlTemplate);
+
+            System.Console.WriteLine($"Command: {args.Render()}");
+
             Runner.Run(args);
         }
     }

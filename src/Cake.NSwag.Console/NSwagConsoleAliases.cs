@@ -1,6 +1,5 @@
 ﻿using Cake.Core;
 using Cake.Core.Annotations;
-using System;
 
 namespace Cake.NSwag.Console
 {

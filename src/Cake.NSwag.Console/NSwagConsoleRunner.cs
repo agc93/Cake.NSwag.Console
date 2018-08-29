@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;

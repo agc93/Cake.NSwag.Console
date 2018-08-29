@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Cake.NSwag.Console.Sources
+﻿namespace Cake.NSwag.Console.Sources
 {
     /// <summary>
     ///     Specifies how an assembly should be treated when loading types
