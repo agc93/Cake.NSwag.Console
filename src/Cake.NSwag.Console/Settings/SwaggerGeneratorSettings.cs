@@ -64,5 +64,10 @@ namespace Cake.NSwag.Console.Settings
         ///     Gets or sets the version for the API specification
         /// </summary>
         public string ApiVersion { get; set; }
+
+        /// <summary>
+        /// Get or sets the controllers which need to be included in the generated json, empty == all
+        /// </summary>
+        public IEnumerable<string> Controllers { get; set; } = new List<string>();
     }
 }

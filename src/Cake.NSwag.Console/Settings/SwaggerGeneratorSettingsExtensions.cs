@@ -140,5 +140,19 @@ namespace Cake.NSwag.Console.Settings
             settings.Runtime = runtime;
             return settings;
         }
+
+        /// <summary>
+        ///     List of controllers to use for the Swagger generation
+        /// </summary>
+        /// <param name="settings">The settings</param>
+        /// <param name="controllers">List of Controllers to generate the specification for</param>
+        /// <returns>The updated settings object</returns>
+        public static SwaggerGeneratorSettings OnlyControllers(this SwaggerGeneratorSettings settings, params string[] controllers)
+        {
+            var a = settings.Controllers as List<string> ?? settings.Controllers.ToList();
+            a.AddRange(controllers.ToList());
+            settings.Controllers = a;
+            return settings;
+        }
     }
 }
