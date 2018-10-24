@@ -85,7 +85,7 @@ namespace Cake.NSwag.Console.Sources
                 .AddSwitch("InfoVersion", settings.ApiVersion ?? "1.0.0", true)
                 .AddSwitch("ServiceSchemes", settings.ServiceSchemes, true)
                 .AddSwitch("DefaultUrlTemplate", settings.DefaultUrlTemplate)
-                .AddSwitch("Controllers", settings.Controllers != null && settings.Controllers.Any() ? string.Join(",", settings.Controllers) : string.Empty, true);
+                .AddSwitch("Controllers", settings.Controllers != null && settings.Controllers.Any() ? string.Join(",", settings.Controllers) : string.Empty);
 
             System.Console.WriteLine($"Command: {args.Render()}");
 
