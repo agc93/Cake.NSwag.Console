@@ -14,8 +14,7 @@ namespace Cake.NSwag.Console.Settings
         /// <param name="settings">The settings</param>
         /// <param name="className">A valid TypeScript class name for the generated client</param>
         /// <returns>The updated settings object</returns>
-        public static TypeScriptGeneratorSettings WithClassName(this TypeScriptGeneratorSettings settings,
-            string className)
+        public static TypeScriptGeneratorSettings WithClassName(this TypeScriptGeneratorSettings settings, string className)
         {
             settings.ClassName = className;
             return settings;
@@ -27,8 +26,7 @@ namespace Cake.NSwag.Console.Settings
         /// <param name="settings">The settings</param>
         /// <param name="moduleName">A valid TypeScript module name for the generated module</param>
         /// <returns>The updated settings object</returns>
-        public static TypeScriptGeneratorSettings WithModuleName(this TypeScriptGeneratorSettings settings,
-            string moduleName)
+        public static TypeScriptGeneratorSettings WithModuleName(this TypeScriptGeneratorSettings settings, string moduleName)
         {
             settings.ModuleName = moduleName;
             return settings;

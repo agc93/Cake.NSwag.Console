@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Cake.Core;
+﻿using Cake.Core;
 using Cake.Core.IO;
 
 namespace Cake.NSwag.Console.Sources

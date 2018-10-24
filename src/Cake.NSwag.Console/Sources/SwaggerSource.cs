@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.NSwag.Console.Settings;
@@ -13,9 +11,7 @@ namespace Cake.NSwag.Console.Sources
     /// </summary>
     public class SwaggerSource : GenerationSource
     {
-
-        public SwaggerSource(NSwagConsoleRunner runner, FilePath specificationFilePath, ICakeEnvironment environment)
-            : base(runner, specificationFilePath, environment)
+        public SwaggerSource(NSwagConsoleRunner runner, FilePath specificationFilePath, ICakeEnvironment environment) : base(runner, specificationFilePath, environment)
         {
         }
 
@@ -86,8 +82,7 @@ namespace Cake.NSwag.Console.Sources
         /// .ToWebApiController("./controller.cs", "Generated.Api.ValuesController")
         /// ]]></code>
         /// </example>
-        public SwaggerSource ToWebApiController(FilePath outputFile, string classPath,
-            Action<CSharpGeneratorSettings> configure = null)
+        public SwaggerSource ToWebApiController(FilePath outputFile, string classPath, Action<CSharpGeneratorSettings> configure = null)
         {
             var settings = new CSharpGeneratorSettings();
             configure?.Invoke(settings);

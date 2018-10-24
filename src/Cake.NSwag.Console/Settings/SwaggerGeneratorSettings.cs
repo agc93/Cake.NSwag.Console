@@ -44,5 +44,30 @@ namespace Cake.NSwag.Console.Settings
         ///     Gets or sets the base path for the API specification
         /// </summary>
         public string BasePath { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the service host for the API specification
+        /// </summary>
+        public string ServiceHost { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the schemes for the API specification
+        /// </summary>
+        public string ServiceSchemes { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the runtime to generate the API specification
+        /// </summary>
+        public string Runtime { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the version for the API specification
+        /// </summary>
+        public string ApiVersion { get; set; }
+
+        /// <summary>
+        /// Get or sets the controllers which need to be included in the generated json, empty == all
+        /// </summary>
+        public IEnumerable<string> Controllers { get; set; } = new List<string>();
     }
 }

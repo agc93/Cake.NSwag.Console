@@ -19,7 +19,7 @@ var projects = GetProjects(solutionPath);
 var artifacts = "./dist/";
 var testResultsPath = MakeAbsolute(Directory(artifacts + "./test-results"));
 GitVersion versionInfo = null;
-var frameworks = new List<string> { "netstandard1.6", "net45" };
+var frameworks = new List<string> { "netstandard2.0", "net461" };
 
 ///////////////////////////////////////////////////////////////////////////////
 // SETUP / TEARDOWN
@@ -46,7 +46,7 @@ Teardown(ctx =>
 
 Task("Clean")
 	.Does(() =>
-{
+{	
 	// Clean solution directories.
 	foreach(var path in projects.AllProjectPaths)
 	{

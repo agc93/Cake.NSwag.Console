@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Cake.Core;
+﻿using Cake.Core;
 using Cake.Core.IO;
 
 namespace Cake.NSwag.Console.Sources
@@ -11,10 +8,8 @@ namespace Cake.NSwag.Console.Sources
     /// </summary>
     public class JsonSchemaSource : GenerationSource
     {
-        public JsonSchemaSource(NSwagConsoleRunner runner, FilePath schemaPath, ICakeEnvironment environment)
-            : base(runner, schemaPath, environment)
+        public JsonSchemaSource(NSwagConsoleRunner runner, FilePath schemaPath, ICakeEnvironment environment) : base(runner, schemaPath, environment)
         {
-            
         }
 
         /// <summary>
